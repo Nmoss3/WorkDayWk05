@@ -13,7 +13,32 @@ $(document).ready(function () {
     localStorage.setItem(scheduleTime, duties);
   });
 
-  // Get item from local storage
+  function hourTracker() {
+    // get current hour
+    var hourNow = moment().hour();
+
+    // checks time in comparison to the id name before the dash
+
+    $(".time-block").each(function () {
+      var timeBlock = parseInt($(this).attr("id").split("-")[1]);
+
+      if (timeBlock < hourNow) {
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
+      } else if (timeBlock === hourNow) {
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
+      } else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+      }
+    });
+  }
+
+  // Get items from local storage
   $("#hour8AM .duty").val(localStorage.getItem("hour8AM"));
   $("#hour9AM .duty").val(localStorage.getItem("hour9AM"));
   $("#hour10AM .duty").val(localStorage.getItem("hour10AM"));
@@ -24,4 +49,7 @@ $(document).ready(function () {
   $("#hour3PM .duty").val(localStorage.getItem("hour3PM"));
   $("#hour4PM .duty").val(localStorage.getItem("hour4PM"));
   $("#hour5PM .duty").val(localStorage.getItem("hour5PM"));
+
+  // calling time tracker
+  hourTracker();
 });
