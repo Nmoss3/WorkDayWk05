@@ -1,3 +1,27 @@
+/* Mobile friendly */
+/* This will be applied on any screen 768px and bellow */
+@media screen and (max-width: 768px), screen and (max-width: 575px) {
+  .row {
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .hour {
+    padding-right: 17%;
+  }
+
+  .saveBtn {
+    border: 0;
+    border-radius: 0.25rem;
+    height: 50px;
+  }
+
+  textarea {
+    min-height: 85px;
+    border: 0;
+  }
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -6,12 +30,11 @@ body {
 
 textarea {
   background: transparent;
-  border: 1px solid black;
+  border: solid black;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 20px;
-  width: 100%;
+  padding: 10px;
 }
 
 .jumbotron {
@@ -22,7 +45,7 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-.description {
+.duty {
   white-space: pre-wrap;
 }
 
@@ -44,17 +67,17 @@ textarea {
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #ad1616;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #20b634;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #3243da;
   color: white;
 }
 
@@ -64,8 +87,6 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-  width: 100%;
-  height: 100%;
 }
 
 .saveBtn i:hover {
